@@ -1,13 +1,11 @@
 package com.green.nottodolist.Data;
 
 
-import com.green.nottodolist.Data.model.DataWeekSelVo;
+import com.green.nottodolist.Data.model.DataMainVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/data")
@@ -15,17 +13,33 @@ import java.util.List;
 public class DataController {
     private final DataService service;
 
-    @GetMapping("/weekly")
-    public List<DataWeekSelVo> getSelWeekMoney(){
-        return service.selWeeklyMoney();
+    @GetMapping("/datamain")
+    public DataMainVo getDataMain(){
+        return service.selDataMain();
+
     }
-    @GetMapping
-    public int getSelMonthMoney(){
-        return service.selMonthMoney();
-    }
-    @GetMapping("/last")
-    public int getSellastMonthMoney(){
-        return service.sellastMonthMoney();
-    }
+//    @GetMapping("/weeklytime")
+//    public List<DataWeekSelVo> getSelWeekTime(){
+//        return service.selWeeklyTime();
+//    }
+//
+//    @GetMapping("/currentmonthmoney")
+//    public Integer getSelMonthMoney(){
+//        return service.selMonthMoney();
+//    }
+//    @GetMapping("/lastmonthmoney")
+//    public Integer getSelLastMonthMoney(){
+//        return service.selLastMonthMoney();
+//    }
+//
+//    @GetMapping("/currentmonthtime")
+//    public Integer getSelMonthTime(){
+//        return service.selMonthTime();
+//    }
+//    @GetMapping("/lastmonthtime")
+//    public Integer getSellastMonthTime(){
+//        return service.selLastMonthTime();
+//    }
+//
 
 }

@@ -1,24 +1,45 @@
 package com.green.nottodolist.Data;
 
-import com.green.nottodolist.Data.model.DataWeekSelVo;
+import com.green.nottodolist.Data.model.DataMainVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class DataService {
     private final DataMapper mapper;
 
-    public List<DataWeekSelVo> selWeeklyMoney(){
-        return mapper.selWeeklyMoney();
-    };
-    int selMonthMoney(){
-        return mapper.selMonthMoney();
+    public DataMainVo selDataMain(){
+
+        DataMainVo dm = DataMainVo.builder()
+                .weeklyMoney(mapper.selWeeklyMoney())
+                .weeklyTime(mapper.selWeeklyTime())
+                .monthMoney(mapper.selMonthMoney())
+                .monthTime(mapper.selMonthTime())
+                .lastMonthMoney(mapper.selLastMonthMoney())
+                .lastMonthTime(mapper.selLastMonthTime())
+                .build();
+        return dm;
     }
-    int sellastMonthMoney(){
-        return mapper.sellastMonthMoney();
-    }
+//    public DataMainVo selWeeklyMoney(){
+//        return mapper.selWeeklyMoney();
+//    }
+//    public DataMainVo selWeeklyTime(){
+//        return mapper.selWeeklyTime();
+//    }
+//
+//   public DataMainVo selMonthMoney(){
+//        return mapper.selMonthMoney();
+//    }
+//    public DataMainVo selLastMonthMoney(){
+//        return mapper.selLastMonthMoney();
+//    }
+//    DataMainVo selMonthTime(){
+//        return mapper.selMonthTime();
+//    }
+//    DataMainVo selLastMonthTime(){
+//        return mapper.selLastMonthTime();
+//    }
 
 }

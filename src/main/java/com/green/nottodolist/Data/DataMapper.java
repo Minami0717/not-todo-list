@@ -8,6 +8,11 @@ import java.util.List;
 @Mapper
 public interface DataMapper {
     List<DataWeekSelVo> selWeeklyMoney();
-    int selMonthMoney();
-    int sellastMonthMoney();
+    List<DataWeekSelVo> selWeeklyTime();
+
+    Integer selMonthMoney();
+    Integer selMonthTime();
+    Integer selLastMonthMoney();
+    Integer selLastMonthTime();
+
 }
