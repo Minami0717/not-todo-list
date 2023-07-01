@@ -2,14 +2,13 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.green.nottodolist.Daily.DailyMapper">
+<mapper namespace="com.example.nottodolisttest.Daily.DailyMapper">
 
 
-    <update id="pastUpdDaily">
+    <update id="UpdDaily">
         update t_use_list
         set cost=#{cost},
-            use_yn=1,
-            cost_category = #{costCategoryId}
+            use_yn=1
         where  use_list_id=#{useListId}
     </update>
 
@@ -23,12 +22,12 @@
         where date_format(date,'%Y-%m-%d')=#{date}
     </select>
 
-
     <update id="delDaily">
         update t_use_list
         set use_yn=0,
             cost=0
         where use_list_id=#{useListId}
     </update>
+
 
 </mapper>
