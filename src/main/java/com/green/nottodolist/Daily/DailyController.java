@@ -1,20 +1,20 @@
 package com.green.nottodolist.Daily;
 
 
-import com.green.nottodolist.Daily.model.*;
+import com.example.nottodolisttest.Daily.model.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("/api/daily")
 @RequiredArgsConstructor
 public class DailyController {
     private final DailyService service;
 
-    @PutMapping("/patch")
-    public int PatchDaily(@RequestBody DailyUpdDto dto){return service.pastUpdDaily(dto);}
+    @PutMapping()
+    public int PatchDaily(@RequestBody DailyUpdDto dto){return service.UpdDaily(dto);}
 
     @GetMapping
     public List<DailyVo> getAllDaily(@RequestParam String date){

@@ -1,6 +1,6 @@
 package com.green.nottodolist.Daily;
 
-import com.green.nottodolist.Daily.model.*;
+import com.example.nottodolisttest.Daily.model.*;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -9,6 +9,6 @@ import java.util.List;
 public interface DailyMapper {
 
     int delDaily(DailyDelDto dto);
-    int pastUpdDaily(DailyUpdDto dto);
+    int UpdDaily(DailyUpdDto dto);
     List<DailyVo> selDailyAll(DailySelDto dto);
 }
