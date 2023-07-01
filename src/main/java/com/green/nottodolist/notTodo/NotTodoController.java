@@ -1,7 +1,7 @@
 package com.green.nottodolist.notTodo;
 
-import com.example.nottodolisttest.notTodo.model.MainPageDto;
-import com.example.nottodolisttest.notTodo.model.MainPageVo;
+import com.green.nottodolist.notTodo.model.MainPageDto;
+import com.green.nottodolist.notTodo.model.MainPageVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

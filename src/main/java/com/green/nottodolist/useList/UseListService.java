@@ -1,6 +1,6 @@
 package com.green.nottodolist.useList;
 
-import com.example.nottodolisttest.useList.model.UseListInsDto;
+import com.green.nottodolist.useList.model.UseListInsDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

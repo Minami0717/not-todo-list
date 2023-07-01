@@ -1,6 +1,6 @@
 package com.green.nottodolist.useList;
 
-import com.example.nottodolisttest.useList.model.UseListInsDto;
+import com.green.nottodolist.useList.model.UseListInsDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

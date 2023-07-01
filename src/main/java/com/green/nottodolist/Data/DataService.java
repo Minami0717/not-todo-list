@@ -1,6 +1,6 @@
 package com.green.nottodolist.Data;
 
-import com.example.nottodolisttest.Data.model.DataWeekSelVo;
+import com.green.nottodolist.Data.model.DataWeekSelVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

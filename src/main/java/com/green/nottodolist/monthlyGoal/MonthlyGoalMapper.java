@@ -1,11 +1,11 @@
 package com.green.nottodolist.monthlyGoal;
 
-import com.example.nottodolisttest.monthlyGoal.model.MonthDto;
-import com.example.nottodolisttest.monthlyGoal.model.MonthlyGoalEntity;
-import com.example.nottodolisttest.monthlyGoal.model.MonthlyGoalVo;
-import com.example.nottodolisttest.notTodo.model.MaxSaveMoneyVo;
-import com.example.nottodolisttest.notTodo.model.MaxSaveTimeVo;
-import com.example.nottodolisttest.notTodo.model.NotTodoEntity;
+import com.green.nottodolist.monthlyGoal.model.MonthDto;
+import com.green.nottodolist.monthlyGoal.model.MonthlyGoalEntity;
+import com.green.nottodolist.monthlyGoal.model.MonthlyGoalVo;
+import com.green.nottodolist.notTodo.model.MaxSaveMoneyVo;
+import com.green.nottodolist.notTodo.model.MaxSaveTimeVo;
+import com.green.nottodolist.notTodo.model.NotTodoEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
