@@ -1,6 +1,6 @@
 package com.green.nottodolist.Daily;
 
-import com.example.nottodolisttest.Daily.model.*;
+import com.green.nottodolist.Daily.model.*;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
