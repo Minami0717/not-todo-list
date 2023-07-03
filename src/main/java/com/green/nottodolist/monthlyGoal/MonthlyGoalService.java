@@ -60,7 +60,7 @@ public class MonthlyGoalService {
         if (now.getMonthValue() != inputMonth || now.getYear() != inputYear) { today = 1; }
 
         Calendar c = Calendar.getInstance();
-        c.set(now.getYear(), now.getMonthValue()-1, now.getDayOfMonth());
+        c.set(inputYear, inputMonth - 1, 1);
         int lastDay = c.getActualMaximum(Calendar.DAY_OF_MONTH);
 
         List<UseListInsDto> list = new ArrayList<>();
