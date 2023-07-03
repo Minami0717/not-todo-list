@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.green.nottodolist.useList.UseListMapper">
+<mapper namespace="com.example.nottodolisttest.useList.UseListMapper">
 
     <insert id="insUseList">
         insert t_use_list (goal_id, date) values
@@ -11,10 +11,26 @@
         </foreach>
     </insert>
 
-    <select id="selSumCostByGoalId">
-        select sum(cost) sumCost
-        from t_use_list
-        where goal_id = #{goalId}
+    <update id="updUseList">
+        update t_use_list
+        set use_cost = use_cost + #{useCost},
+            use_yn = 1
+        where goal_id = #{goalId} and date = curdate()
+    </update>
+
+    <select id="selUseListByMonth">
+        select date, name notTodo
+        from t_use_list tul
+        inner join t_monthly_goal tmg on tul.goal_id = tmg.goal_id
+        inner join t_not_todo tnt on tmg.not_todo_id = tnt.not_todo_id
+        where use_yn = 1 and date_format(date, '%Y-%m') = #{yearMonth}
     </select>
 
+    <select id="selUseListByDay">
+        select name notTodo, cost_category costCategoryId, use_cost useCost
+        from t_use_list tul
+        inner join t_monthly_goal tmg on tul.goal_id = tmg.goal_id
+        inner join t_not_todo tnt on tmg.not_todo_id = tnt.not_todo_id
+        where date = #{day}
+    </select>
 </mapper>

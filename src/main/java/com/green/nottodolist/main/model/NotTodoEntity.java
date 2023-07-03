@@ -1,4 +1,4 @@
-package com.green.nottodolist.notTodo.model;
+package com.green.nottodolist.main.model;
 
 import lombok.Data;
 

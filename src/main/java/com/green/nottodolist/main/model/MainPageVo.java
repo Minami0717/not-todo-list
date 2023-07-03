@@ -1,6 +1,6 @@
-package com.green.nottodolist.notTodo.model;
+package com.green.nottodolist.main.model;
 
-import com.green.nottodolist.monthlyGoal.model.MonthlyGoalVo;
+import com.example.nottodolisttest.monthlyGoal.model.MonthlyGoalVo;
 import lombok.Builder;
 import lombok.Getter;
 

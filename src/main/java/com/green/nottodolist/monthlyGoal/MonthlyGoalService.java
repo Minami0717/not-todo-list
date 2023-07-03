@@ -1,12 +1,11 @@
 package com.green.nottodolist.monthlyGoal;
 
-import com.green.nottodolist.monthlyGoal.model.MonthlyGoalEntity;
-import com.green.nottodolist.monthlyGoal.model.MonthlyGoalInsDto;
-import com.green.nottodolist.monthlyGoal.model.MonthlyGoalUpdDto;
-import com.green.nottodolist.monthlyGoal.model.MonthlyGoalVo;
-import com.green.nottodolist.notTodo.model.NotTodoEntity;
-import com.green.nottodolist.useList.UseListMapper;
-import com.green.nottodolist.useList.model.UseListInsDto;
+import com.example.nottodolisttest.main.model.NotTodoEntity;
+import com.example.nottodolisttest.monthlyGoal.model.MonthlyGoalEntity;
+import com.example.nottodolisttest.monthlyGoal.model.MonthlyGoalInsDto;
+import com.example.nottodolisttest.monthlyGoal.model.MonthlyGoalUpdDto;
+import com.example.nottodolisttest.useList.UseListMapper;
+import com.example.nottodolisttest.useList.model.UseListInsDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -51,18 +50,24 @@ public class MonthlyGoalService {
 
         mapper.insMonthlyGoal(goalEntity);
 
+        String[] s = dto.getMonthYear().split("-");
+        int inputYear = Integer.parseInt(s[0]);
+        int inputMonth = Integer.parseInt(s[1]);
+
         LocalDate now = LocalDate.now();
         int today = now.getDayOfMonth();
 
+        if (now.getMonthValue() != inputMonth && now.getYear() != inputYear) { today = 1; }
+
         Calendar c = Calendar.getInstance();
         c.set(now.getYear(), now.getMonthValue()-1, now.getDayOfMonth());
-        int lastOfDay = c.getActualMaximum(Calendar.DAY_OF_MONTH);
+        int lastDay = c.getActualMaximum(Calendar.DAY_OF_MONTH);
 
         List<UseListInsDto> list = new ArrayList<>();
-        for (int i = today; i <= lastOfDay; i++) {
+        for (int i = today; i <= lastDay; i++) {
             UseListInsDto dto1 = new UseListInsDto();
             dto1.setGoalId(goalEntity.getGoalId());
-            dto1.setDate(String.format("%d-%d-%d", now.getYear(), now.getMonthValue(), i));
+            dto1.setDate(String.format("%d-%d-%d", inputYear, inputMonth, i));
             list.add(dto1);
         }
 
@@ -70,11 +75,12 @@ public class MonthlyGoalService {
     }
 
     public int updMonthlyGoal(MonthlyGoalUpdDto dto) {
-        int notTodoId = mapper.selNotTodoId(dto.getNotTodo());
-        if (notTodoId == 0) {
+        Integer notTodoId = mapper.selNotTodoId(dto.getNotTodo());
+        if (notTodoId == null) {
             NotTodoEntity entity = new NotTodoEntity();
             entity.setName(dto.getNotTodo());
             mapper.insNotTodo(entity);
+            notTodoId = entity.getNotTodoId();
         }
 
         MonthlyGoalEntity goalEntity = MonthlyGoalEntity.builder()
@@ -85,10 +91,6 @@ public class MonthlyGoalService {
                 .build();
 
         return mapper.updMonthlyGoal(goalEntity);
-    }
-
-    public List<MonthlyGoalVo> selMonthlyGoal(String monthYear) {
-        return mapper.selMonthlyGoal(monthYear);
     }
 
     public int delMonthlyGoal(int goalId) {

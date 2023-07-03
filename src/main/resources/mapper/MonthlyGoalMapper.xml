@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.green.nottodolist.monthlyGoal.MonthlyGoalMapper">
+<mapper namespace="com.example.nottodolisttest.monthlyGoal.MonthlyGoalMapper">
 
     <insert id="insMonthlyGoal" useGeneratedKeys="true" keyProperty="goalId">
         insert t_monthly_goal
@@ -22,6 +22,12 @@
         where goal_id = #{goalId}
     </update>
 
+    <update id="updSaveCost">
+        update t_monthly_goal
+        set save_cost = save_cost - #{cost}
+        where goal_id = #{goalId}
+    </update>
+
     <insert id="insNotTodo" useGeneratedKeys="true" keyProperty="notTodoId">
         insert t_not_todo
         set name = #{name}
@@ -35,7 +41,7 @@
         on A.not_todo_id = B.not_todo_id
         inner join t_use_list C
         on A.goal_id = C.goal_id
-        where A.month_year = #{monthYear}
+        where A.month_year = date_format(curdate(), '%Y-%m')
         group by A.goal_id
     </select>
 

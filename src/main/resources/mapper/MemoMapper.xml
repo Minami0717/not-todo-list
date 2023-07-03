@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.green.nottodolist.memo.MemoMapper">
+<mapper namespace="com.example.nottodolisttest.memo.MemoMapper">
 
     <select id="selMemo">
         select content
@@ -11,7 +11,7 @@
 
     <update id="updMemo">
         update t_memo
-        set content = #{content}
+        set content = #{memo}
     </update>
 
 </mapper>

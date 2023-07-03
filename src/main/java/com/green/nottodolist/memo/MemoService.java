@@ -1,5 +1,6 @@
 package com.green.nottodolist.memo;
 
+import com.example.nottodolisttest.memo.model.MemoDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,11 +13,7 @@ public class MemoService {
         this.mapper = mapper;
     }
 
-    public String selMemo() {
-        return mapper.selMemo();
-    }
-
-    public int updMemo(String memo) {
-        return mapper.updMemo(memo);
+    public int updMemo(MemoDto dto) {
+        return mapper.updMemo(dto);
     }
 }
