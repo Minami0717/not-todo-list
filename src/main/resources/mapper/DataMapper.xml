@@ -4,7 +4,7 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.green.nottodolist.Data.DataMapper">
 <select id = "selWeeklyMoney">
-    select C.name,A.cost saveCost
+    select C.name,A.use_cost saveCost
     from t_use_list as A
     inner join t_monthly_goal as B
     on A.goal_id=B.goal_id
@@ -14,7 +14,7 @@
 </select>
 
     <select id = "selWeeklyTime">
-        select C.name, A.cost saveCost
+        select C.name, A.use_cost saveCost
         from t_use_list as A
         inner join t_monthly_goal as B
         on A.goal_id=B.goal_id
