@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/data")
+@RequestMapping("/api/data")
 @RequiredArgsConstructor
 public class DataController {
     private final DataService service;
 
-    @GetMapping("/datamain")
+    @GetMapping
     public DataMainVo getDataMain(){
         return service.selDataMain();
 
