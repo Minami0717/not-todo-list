@@ -8,7 +8,7 @@
     from t_use_list as A
     inner join t_monthly_goal as B
     on A.goal_id=B.goal_id
-    inner join t_not_todo_list as C
+    inner join t_not_todo as C
     on C.not_todo_id=B.not_todo_id
     where cost_category = 1 and date between DATE_SUB(CURDATE(),INTERVAL 7 DAY)and now()
 </select>
@@ -18,7 +18,7 @@
         from t_use_list as A
         inner join t_monthly_goal as B
         on A.goal_id=B.goal_id
-        inner join t_not_todo_list as C
+        inner join t_not_todo as C
         on C.not_todo_id=B.not_todo_id
         where cost_category = 2 and date between DATE_SUB(CURDATE(),INTERVAL 7 DAY)and now()
     </select>
