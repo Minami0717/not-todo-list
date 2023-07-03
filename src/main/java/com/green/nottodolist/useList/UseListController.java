@@ -2,6 +2,7 @@ package com.green.nottodolist.useList;
 
 import com.green.nottodolist.useList.model.UseListUpdDto;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/use-list")
 @RequiredArgsConstructor
+@Tag(name = "오늘 소비")
 public class UseListController {
     private final UseListService service;
 

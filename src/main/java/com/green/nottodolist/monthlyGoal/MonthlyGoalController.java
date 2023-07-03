@@ -3,12 +3,14 @@ package com.green.nottodolist.monthlyGoal;
 import com.green.nottodolist.monthlyGoal.model.MonthlyGoalInsDto;
 import com.green.nottodolist.monthlyGoal.model.MonthlyGoalUpdDto;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/monthly-goal")
 @RequiredArgsConstructor
+@Tag(name = "한달 목표")
 public class MonthlyGoalController {
     private final MonthlyGoalService service;
 
