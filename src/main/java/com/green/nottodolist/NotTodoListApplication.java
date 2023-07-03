@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class NotTodoListApplication {
-	public static void main(String[] args) {
-		SpringApplication.run(NotTodoListApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(NotTodoListApplication.class, args);
+    }
 }

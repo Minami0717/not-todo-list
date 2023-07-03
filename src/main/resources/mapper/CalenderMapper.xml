@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.green.nottodolist.Calender.CalenderMapper">
+<mapper namespace="com.green.nottodolist.calender.CalenderMapper">
 
     <select id="selCalender">
         SELECT B.month_year, C.name, A.date
@@ -11,10 +11,7 @@
         INNER JOIN t_not_todo AS C ON C.not_todo_id = B.not_todo_id
         WHERE
         A.use_yn = 1
-        AND  DATE_FORMAT(A.date, '%Y-%m')=#{monthYear}
+        AND DATE_FORMAT(A.date, '%Y-%m')=#{monthYear}
     </select>
-
-
-
 
 </mapper>

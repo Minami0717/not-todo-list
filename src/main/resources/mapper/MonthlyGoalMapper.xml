@@ -7,18 +7,18 @@
     <insert id="insMonthlyGoal" useGeneratedKeys="true" keyProperty="goalId">
         insert t_monthly_goal
         set not_todo_id = #{notTodoId},
-            cost_category = #{costCategory},
-            goal_cost = #{goalCost},
-            month_year = #{monthYear},
-            save_cost = #{goalCost}
+        cost_category = #{costCategory},
+        goal_cost = #{goalCost},
+        month_year = #{monthYear},
+        save_cost = #{goalCost}
     </insert>
 
     <update id="updMonthlyGoal">
         update t_monthly_goal
         set cost_category = #{costCategory},
-            goal_cost = #{goalCost},
-            save_cost = #{goalCost},
-            not_todo_id = #{notTodoId}
+        goal_cost = #{goalCost},
+        save_cost = #{goalCost},
+        not_todo_id = #{notTodoId}
         where goal_id = #{goalId}
     </update>
 

@@ -1,4 +1,4 @@
-package com.green.nottodolist.Daily.model;
+package com.green.nottodolist.daily.model;
 
 import lombok.Data;
 

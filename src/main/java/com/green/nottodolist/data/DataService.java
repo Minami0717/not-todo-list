@@ -1,6 +1,6 @@
-package com.green.nottodolist.Data;
+package com.green.nottodolist.data;
 
-import com.green.nottodolist.Data.model.DataMainVo;
+import com.green.nottodolist.data.model.DataMainVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class DataService {
     private final DataMapper mapper;
 
-    public DataMainVo selDataMain(){
+    public DataMainVo selDataMain() {
         DataMainVo dm = DataMainVo.builder()
                 .weeklyMoney(mapper.selWeeklyMoney())
                 .weeklyTime(mapper.selWeeklyTime())

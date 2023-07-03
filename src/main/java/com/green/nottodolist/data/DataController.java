@@ -1,7 +1,7 @@
-package com.green.nottodolist.Data;
+package com.green.nottodolist.data;
 
 
-import com.green.nottodolist.Data.model.DataMainVo;
+import com.green.nottodolist.data.model.DataMainVo;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -16,8 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class DataController {
     private final DataService service;
 
-    @GetMapping@Operation(summary = "통계표 출력")
-    public DataMainVo getDataMain(){
+    @GetMapping
+    @Operation(summary = "통계표 출력")
+    public DataMainVo getDataMain() {
         return service.selDataMain();
     }
 

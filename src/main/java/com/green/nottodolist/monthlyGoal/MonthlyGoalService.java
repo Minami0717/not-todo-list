@@ -57,7 +57,9 @@ public class MonthlyGoalService {
         LocalDate now = LocalDate.now();
         int today = now.getDayOfMonth();
 
-        if (now.getMonthValue() != inputMonth || now.getYear() != inputYear) { today = 1; }
+        if (now.getMonthValue() != inputMonth || now.getYear() != inputYear) {
+            today = 1;
+        }
 
         Calendar c = Calendar.getInstance();
         c.set(inputYear, inputMonth - 1, 1);

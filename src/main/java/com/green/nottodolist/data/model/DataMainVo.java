@@ -1,4 +1,4 @@
-package com.green.nottodolist.Data.model;
+package com.green.nottodolist.data.model;
 
 
 import lombok.Builder;

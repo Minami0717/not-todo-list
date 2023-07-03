@@ -1,11 +1,11 @@
-package com.green.nottodolist.Data.model;
+package com.green.nottodolist.calender.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class DataWeekSelVo {
+public class CalenderSelVo {
     private String name;
-    private int cost;
+    private String date;
 }
