@@ -24,7 +24,7 @@
 
     <update id="updSaveCost">
         update t_monthly_goal
-        set save_cost = save_cost - #{cost}
+        set save_cost = save_cost - #{useCost}
         where goal_id = #{goalId}
     </update>
 
