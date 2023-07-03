@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class DataWeekSelDto {
     private String name;
-    private int saveCost;
+    private int cost;
 }

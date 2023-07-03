@@ -11,8 +11,6 @@ import java.util.List;
 public class DataMainVo {
     private List<DataWeekSelVo> weeklyMoney;
     private List<DataWeekSelVo> weeklyTime;
-    private Integer monthMoney;
-    private Integer monthTime;
-    private Integer lastMonthMoney;
-    private Integer lastMonthTime;
+    private List<DataCostVo> monthMoney;
+    private List<DataCostVo> monthTime;
 }

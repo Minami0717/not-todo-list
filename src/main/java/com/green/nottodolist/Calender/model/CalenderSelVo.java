@@ -6,6 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class CalenderSelVo {
+
     private String name;
     private String date;
 }

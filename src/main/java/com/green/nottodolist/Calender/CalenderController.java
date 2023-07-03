@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/calender")
+@RequestMapping("/api/calender")
 @RequiredArgsConstructor
 public class CalenderController {
     private final CalenderService service;

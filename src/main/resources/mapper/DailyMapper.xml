@@ -2,18 +2,19 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.green.nottodolist.Daily.DailyMapper">
-
+<mapper namespace="com.example.nottodolisttest.Daily.DailyMapper">
 
     <update id="UpdDaily">
-        update t_use_list
-        set cost=#{cost},
-            use_yn=1
-        where  use_list_id=#{useListId}
+        UPDATE t_use_list
+        SET
+        cost = #{cost},
+        use_yn = CASE WHEN #{cost} = 0 THEN 0 ELSE 1 END
+        WHERE
+        use_list_id = #{useListId}
     </update>
 
     <select id="selDailyAll">
-        select C.name,A.date,A.cost,B.cost_category costCategoryId
+        select C.name,A.cost,B.cost_category costCategoryId,A.use_list_id useListId
         from t_use_list as A
         inner join t_monthly_goal as B
         on A.goal_id=B.goal_id
@@ -25,7 +26,7 @@
     <update id="delDaily">
         update t_use_list
         set use_yn=0,
-            cost=0
+        cost=0
         where use_list_id=#{useListId}
     </update>
 

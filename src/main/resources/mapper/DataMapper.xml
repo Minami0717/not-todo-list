@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.green.nottodolist.Data.DataMapper">
+<mapper namespace="com.example.nottodolisttest.Data.DataMapper">
 <select id = "selWeeklyMoney">
-    select C.name,B.save_cost saveCost
+    select C.name,A.cost saveCost
     from t_use_list as A
     inner join t_monthly_goal as B
     on A.goal_id=B.goal_id
@@ -14,7 +14,7 @@
 </select>
 
     <select id = "selWeeklyTime">
-        select C.name, B.save_cost saveCost
+        select C.name, A.cost saveCost
         from t_use_list as A
         inner join t_monthly_goal as B
         on A.goal_id=B.goal_id
@@ -24,27 +24,23 @@
     </select>
 
     <select id ="selMonthMoney">
-        select sum(save_cost) saveCost
-        from t_monthly_goal
-        where cost_category = 1 and month_year = DATE_FORMAT(CURDATE(),'%Y-%m')
+        SELECT month_year month, SUM(save_cost) AS saveCost
+        FROM t_monthly_goal
+        WHERE cost_category = 1
+        GROUP BY month_year
+        ORDER BY month_year
     </select>
 
     <select id ="selMonthTime">
-        select sum(save_cost) saveCost
-        from t_monthly_goal
-        where cost_category = 2 and month_year = DATE_FORMAT(CURDATE(),'%Y-%m')
+        SELECT month_year month, SUM(save_cost) AS saveCost
+        FROM t_monthly_goal
+        WHERE cost_category = 2
+        GROUP BY month_year
+        ORDER BY month_year
     </select>
 
-    <select id="selLastMonthMoney">
-        select sum(save_cost) saveCost
-        from t_monthly_goal
-        where cost_category = 1 and month_year = DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 1 MONTH), '%Y-%m')
-    </select>
 
-    <select id="selLastMonthTime">
-        select sum(save_cost) saveCost
-        from t_monthly_goal
-        where cost_category = 2 and month_year = DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 1 MONTH), '%Y-%m')
-    </select>
+
+
 
 </mapper>

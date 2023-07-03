@@ -7,5 +7,5 @@ import lombok.Getter;
 @AllArgsConstructor
 public class DataWeekSelVo {
     private String name;
-    private int saveCost;
+    private int cost;
 }

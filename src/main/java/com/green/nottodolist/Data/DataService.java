@@ -11,17 +11,15 @@ public class DataService {
     private final DataMapper mapper;
 
     public DataMainVo selDataMain(){
-
         DataMainVo dm = DataMainVo.builder()
                 .weeklyMoney(mapper.selWeeklyMoney())
                 .weeklyTime(mapper.selWeeklyTime())
                 .monthMoney(mapper.selMonthMoney())
                 .monthTime(mapper.selMonthTime())
-                .lastMonthMoney(mapper.selLastMonthMoney())
-                .lastMonthTime(mapper.selLastMonthTime())
                 .build();
         return dm;
     }
+
 //    public DataMainVo selWeeklyMoney(){
 //        return mapper.selWeeklyMoney();
 //    }
@@ -29,7 +27,7 @@ public class DataService {
 //        return mapper.selWeeklyTime();
 //    }
 //
-//   public DataMainVo selMonthMoney(){
+//   public List<DataMoneyVo> selMonthMoney(){
 //        return mapper.selMonthMoney();
 //    }
 //    public DataMainVo selLastMonthMoney(){

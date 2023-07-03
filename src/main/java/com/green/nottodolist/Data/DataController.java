@@ -18,17 +18,19 @@ public class DataController {
         return service.selDataMain();
 
     }
-//    @GetMapping("/weeklytime")
+
+
+    //    @GetMapping("/weeklytime")
 //    public List<DataWeekSelVo> getSelWeekTime(){
 //        return service.selWeeklyTime();
 //    }
 //
 //    @GetMapping("/currentmonthmoney")
-//    public Integer getSelMonthMoney(){
+//    public List<DataMoneyVo> getselMonthMoney() {
 //        return service.selMonthMoney();
 //    }
 //    @GetMapping("/lastmonthmoney")
-//    public Integer getSelLastMonthMoney(){
+//    public Integer getSelLastMonthMoney() {
 //        return service.selLastMonthMoney();
 //    }
 //
