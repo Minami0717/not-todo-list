@@ -1,6 +1,6 @@
 package com.green.nottodolist.memo;
 
-import com.example.nottodolisttest.memo.model.MemoDto;
+import com.green.nottodolist.memo.model.MemoDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

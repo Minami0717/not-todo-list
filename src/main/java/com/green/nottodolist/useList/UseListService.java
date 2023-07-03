@@ -1,9 +1,9 @@
 package com.green.nottodolist.useList;
 
-import com.example.nottodolisttest.monthlyGoal.MonthlyGoalMapper;
-import com.example.nottodolisttest.useList.model.UseListDailyVo;
-import com.example.nottodolisttest.useList.model.UseListMonthVo;
-import com.example.nottodolisttest.useList.model.UseListUpdDto;
+import com.green.nottodolist.monthlyGoal.MonthlyGoalMapper;
+import com.green.nottodolist.useList.model.UseListDailyVo;
+import com.green.nottodolist.useList.model.UseListMonthVo;
+import com.green.nottodolist.useList.model.UseListUpdDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

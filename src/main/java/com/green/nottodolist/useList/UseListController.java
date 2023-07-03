@@ -1,6 +1,6 @@
 package com.green.nottodolist.useList;
 
-import com.example.nottodolisttest.useList.model.UseListUpdDto;
+import com.green.nottodolist.useList.model.UseListUpdDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestBody;

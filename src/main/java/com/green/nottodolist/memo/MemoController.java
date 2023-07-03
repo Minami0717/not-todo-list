@@ -1,6 +1,6 @@
 package com.green.nottodolist.memo;
 
-import com.example.nottodolisttest.memo.model.MemoDto;
+import com.green.nottodolist.memo.model.MemoDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;

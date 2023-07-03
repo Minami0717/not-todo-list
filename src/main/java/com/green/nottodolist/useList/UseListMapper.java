@@ -1,9 +1,9 @@
 package com.green.nottodolist.useList;
 
-import com.example.nottodolisttest.useList.model.UseListDailyVo;
-import com.example.nottodolisttest.useList.model.UseListInsDto;
-import com.example.nottodolisttest.useList.model.UseListMonthVo;
-import com.example.nottodolisttest.useList.model.UseListUpdDto;
+import com.green.nottodolist.useList.model.UseListDailyVo;
+import com.green.nottodolist.useList.model.UseListInsDto;
+import com.green.nottodolist.useList.model.UseListMonthVo;
+import com.green.nottodolist.useList.model.UseListUpdDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

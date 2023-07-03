@@ -1,7 +1,7 @@
 package com.green.nottodolist.monthlyGoal;
 
-import com.example.nottodolisttest.monthlyGoal.model.MonthlyGoalInsDto;
-import com.example.nottodolisttest.monthlyGoal.model.MonthlyGoalUpdDto;
+import com.green.nottodolist.monthlyGoal.model.MonthlyGoalInsDto;
+import com.green.nottodolist.monthlyGoal.model.MonthlyGoalUpdDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

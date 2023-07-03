@@ -1,6 +1,6 @@
 package com.green.nottodolist.memo;
 
-import com.example.nottodolisttest.memo.model.MemoDto;
+import com.green.nottodolist.memo.model.MemoDto;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

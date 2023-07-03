@@ -1,11 +1,11 @@
 package com.green.nottodolist.monthlyGoal;
 
-import com.example.nottodolisttest.main.model.NotTodoEntity;
-import com.example.nottodolisttest.monthlyGoal.model.MonthlyGoalEntity;
-import com.example.nottodolisttest.monthlyGoal.model.MonthlyGoalInsDto;
-import com.example.nottodolisttest.monthlyGoal.model.MonthlyGoalUpdDto;
-import com.example.nottodolisttest.useList.UseListMapper;
-import com.example.nottodolisttest.useList.model.UseListInsDto;
+import com.green.nottodolist.main.model.NotTodoEntity;
+import com.green.nottodolist.monthlyGoal.model.MonthlyGoalEntity;
+import com.green.nottodolist.monthlyGoal.model.MonthlyGoalInsDto;
+import com.green.nottodolist.monthlyGoal.model.MonthlyGoalUpdDto;
+import com.green.nottodolist.useList.UseListMapper;
+import com.green.nottodolist.useList.model.UseListInsDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
