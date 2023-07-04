@@ -34,7 +34,7 @@
     </insert>
 
     <select id="selMonthlyGoal">
-        select A.goal_id goalId, B.name, A.goal_cost goalCost, sum(C.cost) sumCost,
+        select A.goal_id goalId, B.name, A.goal_cost goalCost, sum(C.use_cost) sumCost,
         A.month_year monthYear
         from t_monthly_goal A
         inner join t_not_todo B
