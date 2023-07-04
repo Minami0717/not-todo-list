@@ -4,6 +4,7 @@ import com.green.nottodolist.main.model.MaxSaveMoneyVo;
 import com.green.nottodolist.main.model.MaxSaveTimeVo;
 import com.green.nottodolist.main.model.NotTodoEntity;
 import com.green.nottodolist.monthlyGoal.model.MonthDto;
+import com.green.nottodolist.monthlyGoal.model.MonthlyGoalDetailVo;
 import com.green.nottodolist.monthlyGoal.model.MonthlyGoalEntity;
 import com.green.nottodolist.monthlyGoal.model.MonthlyGoalVo;
 import com.green.nottodolist.useList.model.UseListUpdDto;
@@ -20,6 +21,7 @@ public interface MonthlyGoalMapper {
     int insNotTodo(NotTodoEntity entity);
 
     List<MonthlyGoalVo> selMonthlyGoal();
+    List<MonthlyGoalDetailVo> selMonthlyGoalAll();
 
     Integer selNotTodoId(String name);
 

@@ -34,7 +34,7 @@
     </insert>
 
     <select id="selMonthlyGoal">
-        select A.goal_id goalId, B.name, A.goal_cost goalCost, sum(C.use_cost) sumCost,
+        select A.goal_id goalId, B.name notTodo, A.goal_cost goalCost, sum(C.use_cost) sumCost,
         A.month_year monthYear
         from t_monthly_goal A
         inner join t_not_todo B
@@ -43,6 +43,18 @@
         on A.goal_id = C.goal_id
         where A.month_year = date_format(curdate(), '%Y-%m')
         group by A.goal_id
+    </select>
+
+    <select id="selMonthlyGoalAll">
+        select A.goal_id goalId, A.month_year monthYear, B.name notTodo,
+        A.cost_category costCategoryId, A.goal_cost goalCost
+        from t_monthly_goal A
+        inner join t_not_todo B
+        on A.not_todo_id = B.not_todo_id
+        inner join t_use_list C
+        on A.goal_id = C.goal_id
+        group by A.goal_id
+        order by A.goal_id desc
     </select>
 
     <select id="selNotTodoId">

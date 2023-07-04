@@ -1,11 +1,15 @@
 package com.green.nottodolist.monthlyGoal;
 
+import com.green.nottodolist.monthlyGoal.model.MonthlyGoalDetailVo;
 import com.green.nottodolist.monthlyGoal.model.MonthlyGoalInsDto;
 import com.green.nottodolist.monthlyGoal.model.MonthlyGoalUpdDto;
+import com.green.nottodolist.monthlyGoal.model.MonthlyGoalVo;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/monthly-goal")
@@ -39,5 +43,11 @@ public class MonthlyGoalController {
             "goalId: [int] t_montly_goal 테이블 pk값  ,<br>")
     public int delMonthlyGoal(@RequestParam int goalId) {
         return service.delMonthlyGoal(goalId);
+    }
+
+    @GetMapping
+    @Operation(summary = "누적목표 조회")
+    public List<MonthlyGoalDetailVo> getMonthlyGoal() {
+        return service.selMonthlyGoalAll();
     }
 }

@@ -1,9 +1,7 @@
 package com.green.nottodolist.monthlyGoal;
 
 import com.green.nottodolist.main.model.NotTodoEntity;
-import com.green.nottodolist.monthlyGoal.model.MonthlyGoalEntity;
-import com.green.nottodolist.monthlyGoal.model.MonthlyGoalInsDto;
-import com.green.nottodolist.monthlyGoal.model.MonthlyGoalUpdDto;
+import com.green.nottodolist.monthlyGoal.model.*;
 import com.green.nottodolist.useList.UseListMapper;
 import com.green.nottodolist.useList.model.UseListInsDto;
 import lombok.RequiredArgsConstructor;
@@ -97,5 +95,13 @@ public class MonthlyGoalService {
 
     public int delMonthlyGoal(int goalId) {
         return mapper.delMonthlyGoal(goalId);
+    }
+
+    public List<MonthlyGoalDetailVo> selMonthlyGoalAll() {
+        List<MonthlyGoalDetailVo> list = mapper.selMonthlyGoalAll();
+        for (MonthlyGoalDetailVo vo : list) {
+            vo.setCostCategory(vo.getCostCategoryId() == 1 ? "돈" : "시간");
+        }
+        return list;
     }
 }
