@@ -7,14 +7,14 @@
     <update id="updDaily">
         UPDATE t_use_list
         SET
-        cost = #{cost},
+        use_cost = #{cost},
         use_yn = CASE WHEN #{cost} = 0 THEN 0 ELSE 1 END
         WHERE
         use_list_id = #{useListId}
     </update>
 
     <select id="selDailyAll">
-        select C.name,A.cost,B.cost_category costCategoryId,A.use_list_id useListId
+        select C.name,A.use_cost cost,B.cost_category costCategoryId,A.use_list_id useListId
         from t_use_list as A
         inner join t_monthly_goal as B
         on A.goal_id=B.goal_id

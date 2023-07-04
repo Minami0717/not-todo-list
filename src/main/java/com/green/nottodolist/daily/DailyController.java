@@ -18,7 +18,7 @@ public class DailyController {
 
     @PutMapping
     @Operation(summary = "입력값 수정", description = "useListId: PK값,<br>" + "cost: 소비비용, <br>" + "cost값이 0일 경우 삭제처리와 같음")
-    public int PatchDaily(@RequestBody DailyUpdDto dto) {
+    public int patchDaily(@RequestBody DailyUpdDto dto) {
         return service.updDaily(dto);
     }
 
