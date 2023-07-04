@@ -26,7 +26,7 @@
     <update id="delDaily">
         update t_use_list
         set use_yn=0,
-        cost=0
+        use_cost=0
         where use_list_id=#{useListId}
     </update>
 

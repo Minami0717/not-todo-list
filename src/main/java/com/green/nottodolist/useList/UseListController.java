@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/use-list")
 @RequiredArgsConstructor
-@Tag(name = "메인 페이지")
+@Tag(name = "소비비용 입력창")
 public class UseListController {
     private final UseListService service;
 

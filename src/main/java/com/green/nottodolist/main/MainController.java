@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/main")
 @RequiredArgsConstructor
-@Tag(name = "선택기간별 최고기록")
+@Tag(name = "메인 페이지")
 public class MainController {
     private final MainService service;
 
     @GetMapping
     @Operation(summary = "기간별 아낀 금액", description = "" +
-            "startMonth: [최대 7자] 첫째달 <br>" +
-            "endMonth: [최대 7자] 마지막달<br>")
+            "startMonth: [최대 7자] 2023-06 첫째달 <br>" +
+            "endMonth: [최대 7자] 2023-07 마지막달<br>")
     public MainPageVo getMainData(MainPageDto dto) {
         return service.getMainData(dto);
     }
