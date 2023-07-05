@@ -1,8 +1,8 @@
 package com.green.nottodolist.monthlyGoal;
 
-import com.green.nottodolist.main.model.MaxSaveMoneyVo;
-import com.green.nottodolist.main.model.MaxSaveTimeVo;
-import com.green.nottodolist.main.model.NotTodoEntity;
+import com.green.nottodolist.sum.model.MaxSaveMoneyVo;
+import com.green.nottodolist.sum.model.MaxSaveTimeVo;
+import com.green.nottodolist.monthlyGoal.model.NotTodoEntity;
 import com.green.nottodolist.monthlyGoal.model.MonthDto;
 import com.green.nottodolist.monthlyGoal.model.MonthlyGoalDetailVo;
 import com.green.nottodolist.monthlyGoal.model.MonthlyGoalEntity;

@@ -1,6 +1,6 @@
 package com.green.nottodolist.monthlyGoal;
 
-import com.green.nottodolist.main.model.NotTodoEntity;
+import com.green.nottodolist.monthlyGoal.model.NotTodoEntity;
 import com.green.nottodolist.monthlyGoal.model.*;
 import com.green.nottodolist.useList.UseListMapper;
 import com.green.nottodolist.useList.model.UseListInsDto;
