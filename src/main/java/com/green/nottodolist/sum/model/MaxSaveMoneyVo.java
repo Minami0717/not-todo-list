@@ -1,11 +1,11 @@
-package com.green.nottodolist.Sum.model;
+package com.green.nottodolist.sum.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class MaxSaveTimeVo {
+public class MaxSaveMoneyVo {
     private String monthYear;
-    private int maxSaveTime;
+    private int maxSaveMoney;
 }

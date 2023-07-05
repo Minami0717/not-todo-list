@@ -1,6 +1,6 @@
-package com.green.nottodolist.Sum;
+package com.green.nottodolist.sum;
 
-import com.example.demo.Sum.model.*;
+import com.green.nottodolist.sum.model.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

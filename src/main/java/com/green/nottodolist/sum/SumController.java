@@ -1,7 +1,7 @@
-package com.green.nottodolist.Sum;
+package com.green.nottodolist.sum;
 
-import com.example.demo.Sum.model.SumDto;
-import com.example.demo.Sum.model.SumVo;
+import com.green.nottodolist.sum.model.SumDto;
+import com.green.nottodolist.sum.model.SumVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
