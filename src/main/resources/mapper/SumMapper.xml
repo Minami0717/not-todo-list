@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.nottodolist.sum.SumMapper">
+
+
+    <select id="selMaxSaveMoney">
+        select month_year monthYear, sum(save_cost) maxSaveMoney
+        from t_monthly_goal
+        where cost_category = 1
+        group by month_year
+        order by maxSaveMoney desc
+        limit 1
+    </select>
+
+    <select id="selMaxSaveTime">
+        select month_year monthYear, sum(save_cost) maxSaveTime
+        from t_monthly_goal
+        where cost_category = 2
+        group by month_year
+        order by maxSaveTime desc
+        limit 1
+    </select>
+
+    <select id="selSumSaveMoney">
+        select sum(save_cost)
+        from t_monthly_goal
+        where cost_category = 1
+        and month_year between #{startMonth} and #{endMonth}
+    </select>
+
+    <select id="selSumSaveTime">
+        select sum(save_cost)
+        from t_monthly_goal
+        where cost_category = 2
+        and month_year between #{startMonth} and #{endMonth}
+    </select>
+
+</mapper>
