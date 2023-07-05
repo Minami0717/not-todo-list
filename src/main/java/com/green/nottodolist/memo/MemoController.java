@@ -4,10 +4,7 @@ import com.green.nottodolist.memo.model.MemoDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/memo")
@@ -22,4 +19,9 @@ public class MemoController {
     public int putMemo(@RequestBody MemoDto dto) {
         return service.updMemo(dto);
     }
+
+//    @GetMapping
+//    public String getMemo() {
+//
+//    }
 }
