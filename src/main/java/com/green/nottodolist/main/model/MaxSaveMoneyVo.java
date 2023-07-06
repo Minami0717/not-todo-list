@@ -1,4 +1,4 @@
-package com.green.nottodolist.sum.model;
+package com.green.nottodolist.main.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

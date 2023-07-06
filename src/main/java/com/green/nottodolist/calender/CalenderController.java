@@ -21,9 +21,7 @@ public class CalenderController {
 
     @GetMapping
     @Operation(summary = "이번 달에 실행한 항목 모두 출력", description = "monthYear: YYYY-MM")
-    public List<CalenderSelVo> getCalender(@RequestParam String monthYear) {
-        CalenderSelDto dto = new CalenderSelDto();
-        dto.setMonthYear(monthYear);
+    public List<CalenderSelVo> getCalender(CalenderSelDto dto) {
         return service.selCalender(dto);
     }
 }

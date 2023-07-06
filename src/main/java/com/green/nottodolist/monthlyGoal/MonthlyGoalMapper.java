@@ -1,7 +1,7 @@
 package com.green.nottodolist.monthlyGoal;
 
-import com.green.nottodolist.sum.model.MaxSaveMoneyVo;
-import com.green.nottodolist.sum.model.MaxSaveTimeVo;
+import com.green.nottodolist.main.model.MaxSaveMoneyVo;
+import com.green.nottodolist.main.model.MaxSaveTimeVo;
 import com.green.nottodolist.monthlyGoal.model.NotTodoEntity;
 import com.green.nottodolist.monthlyGoal.model.MonthDto;
 import com.green.nottodolist.monthlyGoal.model.MonthlyGoalDetailVo;
@@ -31,9 +31,9 @@ public interface MonthlyGoalMapper {
 
     MaxSaveTimeVo selMaxSaveTime();
 
-    int selSumSaveMoney(MonthDto dto);
+    String selSumSaveMoney(MonthDto dto);
 
-    int selSumSaveTime(MonthDto dto);
+    String selSumSaveTime(MonthDto dto);
 
     int updSaveCost(UseListUpdDto dto);
 }
