@@ -8,6 +8,7 @@ import lombok.Data;
 public class MonthlyGoalEntity {
     private int goalId;
     private int notTodoId;
+    private int memberId;
     private int costCategory;
     private int goalCost;
     private String monthYear;

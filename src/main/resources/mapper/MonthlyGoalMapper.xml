@@ -7,6 +7,7 @@
     <insert id="insMonthlyGoal" useGeneratedKeys="true" keyProperty="goalId">
         insert t_monthly_goal
         set not_todo_id = #{notTodoId},
+        member_id =#{memberId},
         cost_category = #{costCategory},
         goal_cost = #{goalCost},
         month_year = #{monthYear},
@@ -41,7 +42,7 @@
         on A.not_todo_id = B.not_todo_id
         inner join t_use_list C
         on A.goal_id = C.goal_id
-        where A.month_year = date_format(curdate(), '%Y-%m')
+        where A.month_year = date_format(curdate(), '%Y-%m') and member_id=#{memberId}
         group by A.goal_id
     </select>
 
@@ -53,14 +54,9 @@
         on A.not_todo_id = B.not_todo_id
         inner join t_use_list C
         on A.goal_id = C.goal_id
+        where member_id=#{memberId}
         group by A.goal_id
         order by A.goal_id desc
-    </select>
-
-    <select id="selNotTodoId">
-        select not_todo_id
-        from t_not_todo
-        where name = #{name}
     </select>
 
     <delete id="delMonthlyGoal">
@@ -71,7 +67,7 @@
     <select id="selMaxSaveMoney">
         select month_year monthYear, format(sum(save_cost),0) maxSaveMoney
         from t_monthly_goal
-        where cost_category = 1
+        where cost_category = 1 and member_id=#{memberId}
         group by month_year
         order by maxSaveMoney desc
         limit 1
@@ -80,7 +76,7 @@
     <select id="selMaxSaveTime">
         select month_year monthYear, format(sum(save_cost),0) maxSaveTime
         from t_monthly_goal
-        where cost_category = 2
+        where cost_category = 2 and member_id=#{memberId}
         group by month_year
         order by maxSaveTime desc
         limit 1
@@ -90,14 +86,14 @@
         select format(sum(save_cost),0)
         from t_monthly_goal
         where cost_category = 1
-        and month_year between #{startMonth} and #{endMonth}
+        and month_year between #{startMonth} and #{endMonth} and member_id=#{memberId}
     </select>
 
     <select id="selSumSaveTime">
         select format(sum(save_cost),0)
         from t_monthly_goal
         where cost_category = 2
-        and month_year between #{startMonth} and #{endMonth}
+        and month_year between #{startMonth} and #{endMonth} and member_id=#{memberId}
     </select>
 
 </mapper>
