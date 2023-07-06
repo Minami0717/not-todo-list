@@ -7,8 +7,7 @@
     <update id="updDaily">
         UPDATE t_use_list
         SET
-        use_cost = #{cost},
-        use_yn = CASE WHEN #{cost} = 0 THEN 0 ELSE 1 END
+        use_cost = #{cost}
         WHERE
         use_list_id = #{useListId}
     </update>
@@ -25,8 +24,7 @@
 
     <update id="delDaily">
         update t_use_list
-        set use_yn=0,
-        use_cost=0
+        set use_cost=0
         where use_list_id=#{useListId}
     </update>
 

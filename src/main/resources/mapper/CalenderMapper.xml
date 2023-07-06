@@ -9,8 +9,7 @@
         FROM t_use_list AS A
         INNER JOIN t_monthly_goal AS B ON A.goal_id = B.goal_id
         INNER JOIN t_not_todo AS C ON C.not_todo_id = B.not_todo_id
-        WHERE
-        A.use_yn = 1
+        WHERE use_cost>0
         AND DATE_FORMAT(A.date, '%Y-%m')=#{monthYear}
     </select>
 
