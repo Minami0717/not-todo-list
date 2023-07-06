@@ -29,8 +29,14 @@
         where goal_id = #{goalId}
     </update>
 
-    <insert id="insNotTodo" useGeneratedKeys="true" keyProperty="notTodoId">
-        insert t_not_todo
+    <insert id="insNotTodo">
+        <selectKey order="AFTER" resultType="int" keyProperty="notTodoId">
+            select not_todo_id
+            from t_not_todo
+            where name = #{name}
+        </selectKey>
+
+        insert ignore t_not_todo
         set name = #{name}
     </insert>
 
