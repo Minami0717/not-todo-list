@@ -10,12 +10,12 @@ import org.springframework.stereotype.Service;
 public class DataService {
     private final DataMapper mapper;
 
-    public DataMainVo selDataMain() {
+    public DataMainVo selDataMain(int memberId) {
         DataMainVo dm = DataMainVo.builder()
-                .weeklyMoney(mapper.selWeeklyMoney())
-                .weeklyTime(mapper.selWeeklyTime())
-                .monthMoney(mapper.selMonthMoney())
-                .monthTime(mapper.selMonthTime())
+                .weeklyMoney(mapper.selWeeklyMoney(memberId))
+                .weeklyTime(mapper.selWeeklyTime(memberId))
+                .monthMoney(mapper.selMonthMoney(memberId))
+                .monthTime(mapper.selMonthTime(memberId))
                 .build();
         return dm;
     }

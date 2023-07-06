@@ -5,4 +5,5 @@ import lombok.Data;
 @Data
 public class CalenderSelDto {
     private String monthYear;
+    private int memberId;
 }
