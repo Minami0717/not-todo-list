@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.nottodolist.monthlyGoal.MonthlyGoalMapper">
+
+    <insert id="insMonthlyGoal" useGeneratedKeys="true" keyProperty="goalId">
+        insert t_monthly_goal
+        set not_todo_id = #{notTodoId},
+        member_id =#{memberId},
+        cost_category = #{costCategory},
+        goal_cost = #{goalCost},
+        month_year = #{monthYear},
+        save_cost = #{goalCost}
+    </insert>
+
+    <update id="updMonthlyGoal">
+        update t_monthly_goal
+        set cost_category = #{costCategory},
+        goal_cost = #{goalCost},
+        save_cost = #{goalCost},
+        not_todo_id = #{notTodoId}
+        where goal_id = #{goalId}
+    </update>
+
+    <update id="updSaveCost">
+        update t_monthly_goal
+        set save_cost = save_cost - #{useCost}
+        where goal_id = #{goalId}
+    </update>
+
+
+    <select id="selMonthlyGoal">
+        select A.goal_id goalId, B.name notTodo, format(A.goal_cost,0) goalCost, format(sum(C.use_cost),0) sumCost,
+        A.month_year monthYear
+        from t_monthly_goal A
+        inner join t_not_todo B
+        on A.not_todo_id = B.not_todo_id
+        inner join t_use_list C
+        on A.goal_id = C.goal_id
+        where A.month_year = date_format(curdate(), '%Y-%m') and member_id=#{memberId}
+        group by A.goal_id
+    </select>
+
+    <select id="selMonthlyGoalAll">
+        select A.goal_id goalId, A.month_year monthYear, B.name notTodo,
+        A.cost_category costCategoryId, format(A.goal_cost,0) goalCost
+        from t_monthly_goal A
+        inner join t_not_todo B
+        on A.not_todo_id = B.not_todo_id
+        inner join t_use_list C
+        on A.goal_id = C.goal_id
+        where member_id=#{memberId}
+        group by A.goal_id
+        order by A.goal_id desc
+    </select>
+
+    <delete id="delMonthlyGoal">
+        delete from t_monthly_goal
+        where goal_id = #{goalId}
+    </delete>
+
+    <select id="selMaxSaveMoney">
+        select month_year monthYear, format(sum(save_cost),0) maxSaveMoney
+        from t_monthly_goal
+        where cost_category = 1 and member_id=#{memberId}
+        group by month_year
+        order by maxSaveMoney desc
+        limit 1
+    </select>
+
+    <insert id="insNotTodo">
+        <selectKey order="AFTER" resultType="int" keyProperty="notTodoId">
+            select not_todo_id
+            from t_not_todo
+            where name = #{name}
+        </selectKey>
+
+        insert ignore t_not_todo
+        set name = #{name}
+    </insert>
+
+    <select id="selMaxSaveTime">
+        select month_year monthYear, format(sum(save_cost),0) maxSaveTime
+        from t_monthly_goal
+        where cost_category = 2 and member_id=#{memberId}
+        group by month_year
+        order by maxSaveTime desc
+        limit 1
+    </select>
+
+    <select id="selSumSaveMoney">
+        select format(sum(save_cost),0)
+        from t_monthly_goal
+        where cost_category = 1
+        and month_year between #{startMonth} and #{endMonth} and member_id=#{memberId}
+    </select>
+
+    <select id="selSumSaveTime">
+        select format(sum(save_cost),0)
+        from t_monthly_goal
+        where cost_category = 2
+        and month_year between #{startMonth} and #{endMonth} and member_id=#{memberId}
+    </select>
+
+</mapper>
