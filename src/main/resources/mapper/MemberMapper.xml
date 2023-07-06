@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.nottodolisttest.member.MemberMapper">
+
+    <select id="selMemo">
+        select memo
+        from t_member
+        where member_id = #{memberId}
+    </select>
+
+    <update id="updMemo">
+        update t_member
+        set memo = #{memo}
+        where member_id = #{memberId}
+    </update>
+
+    <insert id="insMember">
+        <selectKey keyProperty="memberId" order="AFTER" resultType="int">
+            select member_id
+            from t_member
+            where nickname = #{nickname}
+        </selectKey>
+
+        insert ignore t_member
+        set nickname = #{nickname}
+    </insert>
+
+    <select id="selMember">
+        select nickname
+        from t_member
+        where member_id = #{memberId}
+    </select>
+
+</mapper>
