@@ -5,7 +5,7 @@
 <mapper namespace="com.green.nottodolist.data.DataMapper">
 
     <select id="selWeeklyMoney">
-        select C.name,format(A.use_cost,0) saveCost
+        select C.name,format(sum(A.use_cost),0) saveCost
         from t_use_list as A
         inner join t_monthly_goal as B
         on A.goal_id=B.goal_id
@@ -16,13 +16,13 @@
     </select>
 
     <select id="selWeeklyTime">
-        select C.name, format(A.use_cost,0) cost
+        select C.name, format(sum(A.use_cost),0) saveCost
         from t_use_list as A
         inner join t_monthly_goal as B
         on A.goal_id=B.goal_id
         inner join t_not_todo as C
         on C.not_todo_id=B.not_todo_id
-        where cost_category = 2 and date=#{date} between DATE_SUB(CURDATE(),INTERVAL 7 DAY)and now() and member_id=#{memberId}
+        where cost_category = 2 and date between DATE_SUB(CURDATE(),INTERVAL 7 DAY)and now() and member_id=#{memberId}
         group by name
     </select>
 

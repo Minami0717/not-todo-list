@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/data")
 @RequiredArgsConstructor
-@Tag(name = "통계페이지")
+@Tag(name = "그래프 페이지")
 public class DataController {
     private final DataService service;
 
     @GetMapping
-    @Operation(summary = "통계표 출력")
-    public DataMainVo getDataMain(@RequestParam int memberId ) {
+    @Operation(summary = "그래프 데이터 조회")
+    public DataMainVo getDataMain(@RequestParam int memberId) {
         return service.selDataMain(memberId);
     }
 

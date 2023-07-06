@@ -15,12 +15,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/calender")
 @RequiredArgsConstructor
-@Tag(name = "달력")
+@Tag(name = "달력 페이지")
 public class CalenderController {
     private final CalenderService service;
 
     @GetMapping
-    @Operation(summary = "이번 달에 실행한 항목 모두 출력", description = "monthYear: YYYY-MM")
+    @Operation(summary = "이번 달에 실행한 항목 모두 조회", description = "monthYear: YYYY-MM")
     public List<CalenderSelVo> getCalender(CalenderSelDto dto) {
         return service.selCalender(dto);
     }

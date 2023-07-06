@@ -61,12 +61,12 @@
     </delete>
 
     <select id="selMaxSaveMoney">
-        select month_year monthYear, format(sum(save_cost),0) maxSaveMoney
+        select month_year monthYear, format(sum(save_cost),0) maxSaveMoney, sum(save_cost) money
         from t_monthly_goal
-        where cost_category = 1 and member_id=#{memberId}
+        where cost_category = 1 and member_id=1
         group by month_year
-        order by maxSaveMoney desc
-        limit 1
+        order by money desc
+        limit 1;
     </select>
 
     <insert id="insNotTodo">
@@ -81,11 +81,11 @@
     </insert>
 
     <select id="selMaxSaveTime">
-        select month_year monthYear, format(sum(save_cost),0) maxSaveTime
+        select month_year monthYear, format(sum(save_cost),0) maxSaveTime, sum(save_cost) time
         from t_monthly_goal
         where cost_category = 2 and member_id=#{memberId}
         group by month_year
-        order by maxSaveTime desc
+        order by time desc
         limit 1
     </select>
 

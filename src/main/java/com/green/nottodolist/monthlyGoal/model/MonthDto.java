@@ -8,4 +8,5 @@ import lombok.Data;
 public class MonthDto {
     private String startMonth;
     private String endMonth;
+    private int memberId;
 }

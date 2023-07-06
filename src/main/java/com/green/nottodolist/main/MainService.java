@@ -27,14 +27,14 @@ public class MainService {
         return useListMapper.updUseList(dto);
     }
 
-    public List<MonthlyGoalVo> selTodayGoal(){
-        return monthlyGoalMapper.selMonthlyGoal();
+    public List<MonthlyGoalVo> selTodayGoal(int memberId){
+        return monthlyGoalMapper.selMonthlyGoal(memberId);
     }
 
     public SaveCostDataVo selSaveCostData(MonthDto dto){
         return new SaveCostDataVo(
-                monthlyGoalMapper.selMaxSaveMoney(),
-                monthlyGoalMapper.selMaxSaveTime(),
+                monthlyGoalMapper.selMaxSaveMoney(dto.getMemberId()),
+                monthlyGoalMapper.selMaxSaveTime(dto.getMemberId()),
                 monthlyGoalMapper.selSumSaveMoney(dto),
                 monthlyGoalMapper.selSumSaveTime(dto));
     }

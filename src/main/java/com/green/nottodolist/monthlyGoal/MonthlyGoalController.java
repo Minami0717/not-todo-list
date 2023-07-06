@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/monthly-goal")
 @RequiredArgsConstructor
-@Tag(name = "한달 목표")
+@Tag(name = "월간 목표 설정")
 public class MonthlyGoalController {
     private final MonthlyGoalService service;
 
@@ -47,7 +47,7 @@ public class MonthlyGoalController {
 
     @GetMapping
     @Operation(summary = "누적목표 조회")
-    public List<MonthlyGoalDetailVo> getMonthlyGoal() {
-        return service.selMonthlyGoalAll();
+    public List<MonthlyGoalDetailVo> getMonthlyGoal(int memberId) {
+        return service.selMonthlyGoalAll(memberId);
     }
 }

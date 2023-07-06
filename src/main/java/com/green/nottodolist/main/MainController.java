@@ -29,14 +29,14 @@ public class MainController {
     }
 
     @GetMapping("/today-not-todo")
-    @Operation(summary = "한달목표금액 누적사용금액 사용금액 ",description = "" +
+    @Operation(summary = "이번달 목표 조회",description = "" +
             "goalId: [int] t_montly_goal 테이블 pk값,<br>" +
             "useCostSum: [int] 누적소비비용<br>" +
             "notTodo: [최대 20자] 소비항목(ex담배,술),<br>"+
             "goalCost:  [int] 목표비용<br>"+
             "monthYear: [최대 7자] 년월(ex 2023-06)<br>")
-    public List<MonthlyGoalVo> getTodayGoal() {
-        return service.selTodayGoal();
+    public List<MonthlyGoalVo> getTodayGoal(int memberId) {
+        return service.selTodayGoal(memberId);
     }
 
     @GetMapping("/save-data")
@@ -50,25 +50,25 @@ public class MainController {
     }
 
     @GetMapping("/memo")
-    @Operation(summary = "메모 출력")
+    @Operation(summary = "한줄 메모 조회")
     public String getMemo(int memberId) {
         return service.selMemo(memberId);
     }
 
     @PatchMapping("/memo")
-    @Operation(summary = "메모 수정")
+    @Operation(summary = "한줄 메모 수정")
     public int patchMemo(@RequestBody MemoUpdDto dto) {
         return service.updMemo(dto);
     }
 
     @GetMapping("/member")
-    @Operation(summary = "member_id별 닉네임 출력")
+    @Operation(summary = "회원 닉네임 조회")
     public String getMember(int memberId) {
         return service.selMember(memberId);
     }
 
     @PostMapping("/member")
-    @Operation(summary = "member_id별 닉네임 입력 ")
+    @Operation(summary = "회원 등록, 이미 있는 회원인 경우 로그인")
     public int postMember(@RequestBody MemberInsDto dto) {
         return service.insMember(dto);
     }
