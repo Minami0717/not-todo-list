@@ -9,7 +9,7 @@ public class MonthlyGoalEntity {
     private int goalId;
     private int notTodoId;
     private int costCategory;
-    private String goalCost;
+    private int goalCost;
     private String monthYear;
-    private String saveCost;
+    private int saveCost;
 }

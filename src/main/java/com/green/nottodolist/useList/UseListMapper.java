@@ -1,6 +1,6 @@
 package com.green.nottodolist.useList;
 
-import com.green.nottodolist.useList.model.UseListDailyVo;
+
 import com.green.nottodolist.useList.model.UseListInsDto;
 import com.green.nottodolist.useList.model.UseListUpdDto;
 import org.apache.ibatis.annotations.Mapper;

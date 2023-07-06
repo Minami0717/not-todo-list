@@ -6,6 +6,6 @@ import lombok.Data;
 public class MonthlyGoalInsDto {
     private String notTodo;
     private String costCategory;
-    private String goalCost;
+    private int goalCost;
     private String monthYear;
 }
