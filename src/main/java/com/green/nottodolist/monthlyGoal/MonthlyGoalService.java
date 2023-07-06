@@ -28,7 +28,7 @@ public class MonthlyGoalService {
         }
 
         int costCategory = 1;
-        int goalCost = dto.getGoalCost();
+        String goalCost = dto.getGoalCost();
 
         if ("시간".equals(dto.getCostCategory())) {
 //            String[] s = dto.getMonthYear().split("-");

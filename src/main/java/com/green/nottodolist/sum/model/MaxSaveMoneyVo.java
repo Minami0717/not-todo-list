@@ -7,5 +7,5 @@ import lombok.Getter;
 @AllArgsConstructor
 public class MaxSaveMoneyVo {
     private String monthYear;
-    private int maxSaveMoney;
+    private String maxSaveMoney;
 }

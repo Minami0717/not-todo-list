@@ -7,5 +7,5 @@ public class MonthlyGoalUpdDto {
     private int goalId;
     private String notTodo;
     private String costCategory;
-    private int goalCost;
+    private String goalCost;
 }

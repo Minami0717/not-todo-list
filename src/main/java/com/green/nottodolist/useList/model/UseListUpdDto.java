@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class UseListUpdDto {
     private int goalId;
-    private int useCost;
+    private String useCost;
 }

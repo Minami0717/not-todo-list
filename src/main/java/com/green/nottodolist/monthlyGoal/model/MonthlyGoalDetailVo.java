@@ -11,7 +11,7 @@ public class MonthlyGoalDetailVo {
     private final String monthYear;
     private final String notTodo;
     private final int costCategoryId;
-    private final int goalCost;
+    private final String goalCost;
     private String costCategory;
 
     public void setCostCategory(String costCategory) {

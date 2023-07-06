@@ -34,7 +34,7 @@
     </insert>
 
     <select id="selMonthlyGoal">
-        select A.goal_id goalId, B.name notTodo, A.goal_cost goalCost, sum(C.use_cost) sumCost,
+        select A.goal_id goalId, B.name notTodo, format(A.goal_cost,0) goalCost, format(sum(C.use_cost),0) sumCost,
         A.month_year monthYear
         from t_monthly_goal A
         inner join t_not_todo B
@@ -47,7 +47,7 @@
 
     <select id="selMonthlyGoalAll">
         select A.goal_id goalId, A.month_year monthYear, B.name notTodo,
-        A.cost_category costCategoryId, A.goal_cost goalCost
+        A.cost_category costCategoryId, format(A.goal_cost,0) goalCost
         from t_monthly_goal A
         inner join t_not_todo B
         on A.not_todo_id = B.not_todo_id
@@ -69,7 +69,7 @@
     </delete>
 
     <select id="selMaxSaveMoney">
-        select month_year monthYear, sum(save_cost) maxSaveMoney
+        select month_year monthYear, format(sum(save_cost),0) maxSaveMoney
         from t_monthly_goal
         where cost_category = 1
         group by month_year
@@ -78,7 +78,7 @@
     </select>
 
     <select id="selMaxSaveTime">
-        select month_year monthYear, sum(save_cost) maxSaveTime
+        select month_year monthYear, format(sum(save_cost),0) maxSaveTime
         from t_monthly_goal
         where cost_category = 2
         group by month_year
@@ -87,14 +87,14 @@
     </select>
 
     <select id="selSumSaveMoney">
-        select sum(save_cost)
+        select format(sum(save_cost),0)
         from t_monthly_goal
         where cost_category = 1
         and month_year between #{startMonth} and #{endMonth}
     </select>
 
     <select id="selSumSaveTime">
-        select sum(save_cost)
+        select format(sum(save_cost),0)
         from t_monthly_goal
         where cost_category = 2
         and month_year between #{startMonth} and #{endMonth}

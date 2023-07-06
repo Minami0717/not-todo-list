@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class DataCostVo {
     private String month;
-    private int saveCost;
+    private String saveCost;
 }

@@ -8,6 +8,6 @@ import lombok.Getter;
 public class SumVo {
     private MaxSaveMoneyVo maxSaveMoney;
     private MaxSaveTimeVo maxSaveTime;
-    private int sumSaveMoney;
-    private int sumSaveTime;
+    private String sumSaveMoney;
+    private String sumSaveTime;
 }

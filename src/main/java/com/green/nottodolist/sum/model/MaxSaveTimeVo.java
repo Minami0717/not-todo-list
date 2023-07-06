@@ -7,5 +7,5 @@ import lombok.Getter;
 @AllArgsConstructor
 public class MaxSaveTimeVo {
     private String monthYear;
-    private int maxSaveTime;
+    private String maxSaveTime;
 }

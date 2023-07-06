@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class DailyUpdDto {
     private int useListId;
-    private int cost;
+    private String cost;
 }

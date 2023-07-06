@@ -27,7 +27,7 @@
     </select>
 
     <select id="selUseListByDay">
-        select name notTodo, cost_category costCategoryId, use_cost useCost
+        select name notTodo, cost_category costCategoryId, format(use_cost,0) useCost
         from t_use_list tul
         inner join t_monthly_goal tmg on tul.goal_id = tmg.goal_id
         inner join t_not_todo tnt on tmg.not_todo_id = tnt.not_todo_id

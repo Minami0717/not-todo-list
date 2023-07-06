@@ -10,9 +10,9 @@ public interface SumMapper {
 
     MaxSaveTimeVo selMaxSaveTime();
 
-    int selSumSaveMoney(SumDto dto);
+    String selSumSaveMoney(SumDto dto);
 
-    int selSumSaveTime(SumDto dto);
+    String selSumSaveTime(SumDto dto);
 
 
 }

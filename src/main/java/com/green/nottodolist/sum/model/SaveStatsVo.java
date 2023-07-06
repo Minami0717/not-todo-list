@@ -7,9 +7,9 @@ import lombok.Getter;
 @AllArgsConstructor
 public class SaveStatsVo {
     private String maxMoneyMonth;
-    private int maxSaveMoney;
+    private String maxSaveMoney;
     private String maxTimeMonth;
-    private int maxSaveTime;
-    private int sumSaveMoney;
-    private int sumSaveTime;
+    private String maxSaveTime;
+    private String sumSaveMoney;
+    private String sumSaveTime;
 }

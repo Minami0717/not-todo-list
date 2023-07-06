@@ -6,7 +6,7 @@
 
 
     <select id="selMaxSaveMoney">
-        select month_year monthYear, sum(save_cost) maxSaveMoney
+        select month_year monthYear, format(sum(save_cost),0) maxSaveMoney
         from t_monthly_goal
         where cost_category = 1
         group by month_year
@@ -15,7 +15,7 @@
     </select>
 
     <select id="selMaxSaveTime">
-        select month_year monthYear, sum(save_cost) maxSaveTime
+        select month_year monthYear, format(sum(save_cost),0) maxSaveTime
         from t_monthly_goal
         where cost_category = 2
         group by month_year
@@ -24,14 +24,14 @@
     </select>
 
     <select id="selSumSaveMoney">
-        select sum(save_cost)
+        select format(sum(save_cost),0)
         from t_monthly_goal
         where cost_category = 1
         and month_year between #{startMonth} and #{endMonth}
     </select>
 
     <select id="selSumSaveTime">
-        select sum(save_cost)
+        select format(sum(save_cost),0)
         from t_monthly_goal
         where cost_category = 2
         and month_year between #{startMonth} and #{endMonth}

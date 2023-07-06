@@ -14,7 +14,7 @@
     </update>
 
     <select id="selDailyAll">
-        select C.name,A.use_cost cost,B.cost_category costCategoryId,A.use_list_id useListId
+        select C.name,format(A.use_cost,0) cost,B.cost_category costCategoryId,A.use_list_id useListId
         from t_use_list as A
         inner join t_monthly_goal as B
         on A.goal_id=B.goal_id
