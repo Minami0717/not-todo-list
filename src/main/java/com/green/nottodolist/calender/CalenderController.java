@@ -20,7 +20,9 @@ public class CalenderController {
     private final CalenderService service;
 
     @GetMapping
-    @Operation(summary = "이번 달에 실행한 항목 모두 조회", description = "monthYear: YYYY-MM")
+    @Operation(summary = "선택한 달의 실행한 항목 모두 조회", description =
+            "memberId: 회원 id값<br>" +
+            "monthYear: YYYY-MM<br>")
     public List<CalenderSelVo> getCalender(CalenderSelDto dto) {
         return service.selCalender(dto);
     }

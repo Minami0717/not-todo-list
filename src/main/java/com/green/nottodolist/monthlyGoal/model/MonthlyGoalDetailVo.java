@@ -10,9 +10,9 @@ public class MonthlyGoalDetailVo {
     private final int goalId;
     private final String monthYear;
     private final String notTodo;
-    private final int costCategoryId;
     private final String goalCost;
     private String costCategory;
+    private final int costCategoryId;
 
     public void setCostCategory(String costCategory) {
         this.costCategory = costCategory;
