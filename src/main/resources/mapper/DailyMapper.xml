@@ -7,7 +7,7 @@
     <update id="updDaily">
         UPDATE t_use_list
         SET
-        use_cost = #{cost}
+        use_cost = #{useCost}
         WHERE
         use_list_id = #{useListId}
     </update>

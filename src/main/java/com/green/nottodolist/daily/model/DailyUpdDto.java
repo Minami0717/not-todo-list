@@ -6,5 +6,5 @@ import lombok.Data;
 public class DailyUpdDto {
     private int useListId;
     private int goalId;
-    private int cost;
+    private int useCost;
 }
