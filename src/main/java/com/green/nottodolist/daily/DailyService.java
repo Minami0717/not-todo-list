@@ -1,6 +1,8 @@
 package com.green.nottodolist.daily;
 
 import com.green.nottodolist.daily.model.*;
+import com.green.nottodolist.monthlyGoal.MonthlyGoalMapper;
+import com.green.nottodolist.useList.model.UseListUpdDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,9 +12,18 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DailyService {
     private final DailyMapper mapper;
+    private final MonthlyGoalMapper goalMapper;
 
     public int updDaily(DailyUpdDto dto) {
-        return mapper.updDaily(dto);
+        Integer useCost = mapper.selDailyUseCost(dto.getUseListId());
+        int costDiff = dto.getCost() - useCost;
+
+        UseListUpdDto dto1 = new UseListUpdDto();
+        dto1.setGoalId(dto.getGoalId());
+        dto1.setUseCost(costDiff);
+        mapper.updDaily(dto);
+
+        return goalMapper.updSaveCost(dto1);
     }
 
     public int delDaily(DailyDelDto dto) {

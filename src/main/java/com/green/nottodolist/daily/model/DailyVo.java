@@ -4,9 +4,10 @@ import lombok.Data;
 
 @Data
 public class DailyVo {
+    private int useListId;
+    private int goalId;
     private String name;
     private String costCategory;
     private int costCategoryId;
-    private String cost;
-    private String useListId;
+    private String useCost;
 }

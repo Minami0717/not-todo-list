@@ -12,4 +12,6 @@ public interface DailyMapper {
     int updDaily(DailyUpdDto dto);
 
     List<DailyVo> selDailyAll(DailySelDto dto);
+
+    Integer selDailyUseCost(int useListId);
 }
