@@ -16,7 +16,7 @@ public class DailyService {
 
     public int updDaily(DailyUpdDto dto) {
         Integer useCost = mapper.selDailyUseCost(dto.getUseListId());
-        int costDiff = dto.getCost() - useCost;
+        int costDiff = dto.getUseCost() - useCost;
 
         UseListUpdDto dto1 = new UseListUpdDto();
         dto1.setGoalId(dto.getGoalId());
