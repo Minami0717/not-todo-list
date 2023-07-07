@@ -58,15 +58,13 @@ public class MonthlyGoalService {
     }
 
     public int updMonthlyGoal(MonthlyGoalUpdDto dto) {
-        NotTodoEntity entity = new NotTodoEntity();
-        entity.setName(dto.getNotTodo());
-        mapper.insNotTodo(entity);
+        Integer goalCost = mapper.selGoalCost(dto.getGoalId());
+        int costDiff = dto.getGoalCost() - goalCost;
 
         MonthlyGoalEntity goalEntity = MonthlyGoalEntity.builder()
                 .goalCost(dto.getGoalCost())
-                .costCategory("돈".equals(dto.getCostCategory()) ? 1 : 2)
-                .notTodoId(entity.getNotTodoId())
                 .goalId(dto.getGoalId())
+                .saveCost(costDiff)
                 .build();
 
         return mapper.updMonthlyGoal(goalEntity);

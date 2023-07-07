@@ -23,8 +23,6 @@ public interface MonthlyGoalMapper {
     List<MonthlyGoalVo> selMonthlyGoal(int memberId);
     List<MonthlyGoalDetailVo> selMonthlyGoalAll(int memberId);
 
-    Integer selNotTodoId(String name);
-
     int delMonthlyGoal(int goalId);
 
     MaxSaveMoneyVo selMaxSaveMoney(int memberId);
@@ -36,4 +34,6 @@ public interface MonthlyGoalMapper {
     String selSumSaveTime(MonthDto dto);
 
     int updSaveCost(UseListUpdDto dto);
+
+    Integer selGoalCost(int goalId);
 }

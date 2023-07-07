@@ -16,10 +16,8 @@
 
     <update id="updMonthlyGoal">
         update t_monthly_goal
-        set cost_category = #{costCategory},
-        goal_cost = #{goalCost},
-        save_cost = #{goalCost},
-        not_todo_id = #{notTodoId}
+        set goal_cost = #{goalCost},
+            save_cost = save_cost + #{saveCost}
         where goal_id = #{goalId}
     </update>
 
@@ -29,6 +27,11 @@
         where goal_id = #{goalId}
     </update>
 
+    <select id="selGoalCost">
+        select goal_cost goalCost
+        from t_monthly_goal
+        where goal_id = #{goalId}
+    </select>
 
     <select id="selMonthlyGoal">
         select A.goal_id goalId, B.name notTodo, format(A.goal_cost,0) goalCost,
