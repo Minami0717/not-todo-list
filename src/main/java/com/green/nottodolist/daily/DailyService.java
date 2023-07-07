@@ -35,7 +35,7 @@ public class DailyService {
         for (int i = 0; i < vo.size(); i++) {
             DailyVo vo1 = vo.get(i);
             if (vo1.getCostCategoryId() == 1) {
-                vo1.setCostCategory("돈");
+                vo1.setCostCategory("원");
             } else if (vo1.getCostCategoryId() == 2) {
                 vo1.setCostCategory("시간");
             }
