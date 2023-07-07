@@ -28,7 +28,11 @@ public class MainService {
     }
 
     public List<MonthlyGoalVo> selTodayGoal(int memberId){
-        return monthlyGoalMapper.selMonthlyGoal(memberId);
+        List<MonthlyGoalVo> list = monthlyGoalMapper.selMonthlyGoal(memberId);
+        for (MonthlyGoalVo vo : list) {
+            vo.setCostCategory(vo.getCostCategoryId() == 1 ? "원" : "시간");
+        }
+        return list;
     }
 
     public SaveCostDataVo selSaveCostData(MonthDto dto){

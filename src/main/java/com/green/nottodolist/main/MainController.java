@@ -20,8 +20,8 @@ import java.util.List;
 public class MainController {
     private final MainService service;
 
-    @PatchMapping("/use-cost")
-    @Operation(summary = "소비비용 수정", description = "" +
+    @PatchMapping("/today-not-todo")
+    @Operation(summary = "소비비용 추가", description = "" +
             "goalId: [int] t_montly_goal 테이블 pk값,<br>" +
             "useCost: [int] 소비비용<br>")
     public int patchUseList(@RequestBody UseListUpdDto dto) {

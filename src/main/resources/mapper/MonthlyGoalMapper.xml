@@ -31,8 +31,8 @@
 
 
     <select id="selMonthlyGoal">
-        select A.goal_id goalId, B.name notTodo, format(A.goal_cost,0) goalCost, format(sum(C.use_cost),0) sumCost,
-        A.month_year monthYear
+        select A.goal_id goalId, B.name notTodo, format(A.goal_cost,0) goalCost,
+            format(sum(C.use_cost),0) useCostSum, cost_category costCategoryId
         from t_monthly_goal A
         inner join t_not_todo B
         on A.not_todo_id = B.not_todo_id
