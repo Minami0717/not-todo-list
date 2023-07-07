@@ -22,29 +22,33 @@ public class MainController {
 
     @PatchMapping("/today-not-todo")
     @Operation(summary = "소비비용 추가", description = "" +
-            "goalId: [int] t_montly_goal 테이블 pk값,<br>" +
+            "goalId: [int] 수정할 목표 id값,<br>"+
             "useCost: [int] 소비비용<br>")
     public int patchUseList(@RequestBody UseListUpdDto dto) {
         return service.updUseList(dto);
     }
 
     @GetMapping("/today-not-todo")
-    @Operation(summary = "이번달 목표 조회",description = "" +
-            "goalId: [int] t_montly_goal 테이블 pk값,<br>" +
-            "useCostSum: [int] 누적소비비용<br>" +
-            "notTodo: [최대 20자] 소비항목(ex담배,술),<br>"+
-            "goalCost:  [int] 목표비용<br>"+
-            "monthYear: [최대 7자] 년월(ex 2023-06)<br>")
+    @Operation(summary = "이번달 목표 조회",description = ""+
+            "goalId: 조회한 목표 id값,<br>"+
+            "notTodo: 소비항목(ex담배,술),<br>"+
+            "goalCost: 목표비용<br>"+
+            "useCostSum: 누적소비비용,<br>"+
+            "costCategory: 비용구분(돈, 시간)>"+
+            "costCategoryId: 비용구분(돈, 시간) id값")
     public List<MonthlyGoalVo> getTodayGoal(int memberId) {
         return service.selTodayGoal(memberId);
     }
 
     @GetMapping("/save-data")
     @Operation(summary = "선택 기간별 금액",description = "" +
-            "maxSaveMoney: 기간별 최대 절약비용,<br>" +
-            "maxSaveTime: 기간별 최대 절약시간<br>" +
-            "sumSaveMoney: 지금까지 아낀 비용 ,<br>"+
-            "sumSaveTime: 지금까지 아낀 시간<br>")
+            "maxSaveMoney: 기간별 최대 절약비용,<br>"+
+            "maxSaveTime: 기간별 최대 절약시간,<br>"+
+            "sumSaveMoney: 지금까지 아낀 비용,<br>"+
+            "sumSaveTime: 지금까지 아낀 시간<br>"+
+            "startMonth: 기간별 비용 조회시 필요한 시작년월(ex 2023-07),<br>"+
+            "endMonth: 기간별 비용 조회시 필요한 마지막년월(ex 2023-10),<br>"+
+            "memberId: 사용자구분 id값<br>")
     public SaveCostDataVo getSaveCostData(MonthDto dto){
         return service.selSaveCostData(dto);
     }
