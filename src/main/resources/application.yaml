@@ -13,3 +13,4 @@ mybatis:
 springdoc:
   swagger-ui:
     path: /swagger.html
+    tags-sorter: alpha

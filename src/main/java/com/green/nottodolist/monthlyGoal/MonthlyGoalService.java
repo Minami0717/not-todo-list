@@ -38,16 +38,16 @@ public class MonthlyGoalService {
         int inputMonth = Integer.parseInt(s[1]);
 
         LocalDate now = LocalDate.now();
-        int today = now.getDayOfMonth();
+        int startDay = now.getDayOfMonth();
 
-        if (now.getMonthValue() != inputMonth || now.getYear() != inputYear) { today = 1; }
+        if (now.getMonthValue() != inputMonth || now.getYear() != inputYear) { startDay = 1; }
 
         Calendar c = Calendar.getInstance();
         c.set(inputYear, inputMonth - 1, 1);
-        int lastDay = c.getActualMaximum(Calendar.DAY_OF_MONTH);
+        int endDay = c.getActualMaximum(Calendar.DAY_OF_MONTH);
 
         List<UseListInsDto> list = new ArrayList<>();
-        for (int i = today; i <= lastDay; i++) {
+        for (int i = startDay; i <= endDay; i++) {
             UseListInsDto dto1 = new UseListInsDto();
             dto1.setGoalId(goalEntity.getGoalId());
             dto1.setDate(String.format("%d-%d-%d", inputYear, inputMonth, i));
