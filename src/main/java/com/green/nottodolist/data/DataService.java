@@ -14,8 +14,8 @@ public class DataService {
         DataMainVo dm = DataMainVo.builder()
                 .weeklyMoney(mapper.selWeeklyMoney(memberId))
                 .weeklyTime(mapper.selWeeklyTime(memberId))
-                .monthMoney(mapper.selMonthMoney(memberId))
-                .monthTime(mapper.selMonthTime(memberId))
+                .monthMoney(mapper.selMonthlyMoney(memberId))
+                .monthTime(mapper.selMonthlyTime(memberId))
                 .build();
         return dm;
     }

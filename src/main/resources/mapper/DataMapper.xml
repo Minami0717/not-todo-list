@@ -26,20 +26,22 @@
         group by name
     </select>
 
-    <select id="selMonthMoney">
+    <select id="selMonthlyMoney">
         SELECT month_year month, format(SUM(save_cost),0) AS saveCost
         FROM t_monthly_goal
-        WHERE cost_category = 1 and member_id=#{memberId}
-        GROUP BY month_year
-        ORDER BY month_year
+        WHERE cost_category = 1 and member_id = #{memberId}
+        and month_year = year(curdate()) and month_year <![CDATA[<=]]> date_format(curdate(), '%Y-%m')
+        group by month_year
+        order by month_year
     </select>
 
-    <select id="selMonthTime">
+    <select id="selMonthlyTime">
         SELECT month_year month, format(SUM(save_cost),0) AS saveCost
         FROM t_monthly_goal
-        WHERE cost_category = 2 and member_id=#{memberId}
-        GROUP BY month_year
-        ORDER BY month_year
+        WHERE cost_category = 2 and member_id = #{memberId}
+        and month_year = year(curdate()) and month_year <![CDATA[<=]]> date_format(curdate(), '%Y-%m')
+        group by month_year
+        order by month_year
     </select>
 
 </mapper>

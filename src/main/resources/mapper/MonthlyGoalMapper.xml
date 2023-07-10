@@ -4,6 +4,17 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.green.nottodolist.monthlyGoal.MonthlyGoalMapper">
 
+    <insert id="insNotTodo">
+        <selectKey order="AFTER" resultType="int" keyProperty="notTodoId">
+            select not_todo_id
+            from t_not_todo
+            where name = #{name}
+        </selectKey>
+
+        insert ignore t_not_todo
+        set name = #{name}
+    </insert>
+
     <insert id="insMonthlyGoal" useGeneratedKeys="true" keyProperty="goalId">
         insert t_monthly_goal
         set not_todo_id = #{notTodoId},
@@ -66,27 +77,16 @@
     <select id="selMaxSaveMoney">
         select month_year monthYear, format(sum(save_cost),0) maxSaveMoney, sum(save_cost) money
         from t_monthly_goal
-        where cost_category = 1 and member_id=1
+        where cost_category = 1 and member_id = #{memberId} and month_year <![CDATA[<=]]> date_format(curdate(), '%Y-%m')
         group by month_year
         order by money desc
-        limit 1;
+        limit 1
     </select>
-
-    <insert id="insNotTodo">
-        <selectKey order="AFTER" resultType="int" keyProperty="notTodoId">
-            select not_todo_id
-            from t_not_todo
-            where name = #{name}
-        </selectKey>
-
-        insert ignore t_not_todo
-        set name = #{name}
-    </insert>
 
     <select id="selMaxSaveTime">
         select month_year monthYear, format(sum(save_cost),0) maxSaveTime, sum(save_cost) time
         from t_monthly_goal
-        where cost_category = 2 and member_id=#{memberId}
+        where cost_category = 2 and member_id = #{memberId} and month_year <![CDATA[<=]]> date_format(curdate(), '%Y-%m')
         group by month_year
         order by time desc
         limit 1

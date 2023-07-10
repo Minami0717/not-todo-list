@@ -12,7 +12,7 @@ public interface DataMapper {
 
     List<DataWeekSelVo> selWeeklyTime(int memberId);
 
-    List<DataCostVo> selMonthMoney(int memberId);
+    List<DataCostVo> selMonthlyMoney(int memberId);
 
-    List<DataCostVo> selMonthTime(int memberId);
+    List<DataCostVo> selMonthlyTime(int memberId);
 }
