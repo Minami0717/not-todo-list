@@ -15,7 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/calender")
 @RequiredArgsConstructor
-@Tag(name = "달력 페이지")
+@Tag(name = "3. 달력 페이지")
 public class CalenderController {
     private final CalenderService service;
 

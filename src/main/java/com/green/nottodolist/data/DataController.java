@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/data")
 @RequiredArgsConstructor
-@Tag(name = "그래프 페이지")
+@Tag(name = "5. 그래프 페이지")
 public class DataController {
     private final DataService service;
 

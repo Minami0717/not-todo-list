@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/monthly-goal")
 @RequiredArgsConstructor
-@Tag(name = "월간 목표 설정")
+@Tag(name = "2. 월간 목표 설정")
 public class MonthlyGoalController {
     private final MonthlyGoalService service;
 

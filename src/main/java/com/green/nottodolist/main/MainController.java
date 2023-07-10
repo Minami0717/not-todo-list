@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-@Tag(name = "메인 페이지")
+@Tag(name = "1. 메인 페이지")
 @RequiredArgsConstructor
 public class MainController {
     private final MainService service;

@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/daily")
 @RequiredArgsConstructor
-@Tag(name = "일별 상세 페이지")
+@Tag(name = "4. 일별 상세 페이지")
 public class DailyController {
     private final DailyService service;
 
