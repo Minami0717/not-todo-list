@@ -19,7 +19,7 @@ public class MonthlyGoalController {
     private final MonthlyGoalService service;
 
     @PostMapping
-    @Operation(summary = "한달목표 입력", description = "" +
+    @Operation(summary = "월간 목표 추가", description = "" +
             "memberId: [int] 회원 id<br>" +
             "notTodo: [최대 20자] 절제할 항목(ex 담배, 술)<br>" +
             "costCategory: 비용구분(돈, 시간)<br>" +
@@ -30,7 +30,7 @@ public class MonthlyGoalController {
     }
 
     @PutMapping
-    @Operation(summary = "한달목표 수정", description = "" +
+    @Operation(summary = "월간 목표 수정", description = "" +
             "goalId: [int] 수정할 목표 id값<br>" +
             "goalCost: [int] 목표비용<br>")
     public int putMonthlyGoal(@RequestBody MonthlyGoalUpdDto dto) {
@@ -38,14 +38,14 @@ public class MonthlyGoalController {
     }
 
     @DeleteMapping
-    @Operation(summary = "한달목표 삭제", description = "" +
+    @Operation(summary = "월간 목표 삭제", description = "" +
             "goalId: [int] 삭제할 목표 id값")
     public int delMonthlyGoal(@RequestParam int goalId) {
         return service.delMonthlyGoal(goalId);
     }
 
     @GetMapping
-    @Operation(summary = "누적목표 조회")
+    @Operation(summary = "월간 목표 조회")
     public List<MonthlyGoalDetailVo> getMonthlyGoal(int memberId) {
         return service.selMonthlyGoalAll(memberId);
     }
