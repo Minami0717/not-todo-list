@@ -33,9 +33,9 @@ public class MonthlyGoalService {
 
         mapper.insMonthlyGoal(goalEntity);
 
-        String[] s = dto.getMonthYear().split("-");
-        int inputYear = Integer.parseInt(s[0]);
-        int inputMonth = Integer.parseInt(s[1]);
+        String[] yearMonth = dto.getMonthYear().split("-");
+        int inputYear = Integer.parseInt(yearMonth[0]);
+        int inputMonth = Integer.parseInt(yearMonth[1]);
 
         LocalDate now = LocalDate.now();
         int startDay = now.getDayOfMonth();
